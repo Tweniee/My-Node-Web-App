@@ -16,6 +16,12 @@ const sequalize = utils.define("Users",{
         type: Sequelize.STRING,
         allownull:false,
         unique:true,
+        validate: {
+            isEmail: {
+              isEmail: true,
+              msg: "Must be a valid email address",
+            }
+          }
     },
     password:{
         type: Sequelize.STRING,
@@ -25,7 +31,7 @@ const sequalize = utils.define("Users",{
         type: Sequelize.STRING,
         validate: {
             isIn:{
-               args: [['male','female']],
+               args: [['male','female','other']],
                msg:'Please Male and Female'
             }
         }

@@ -5,6 +5,7 @@ const routes = require('./routes/routes')
 const bodyParser = require('body-parser')
 const app = express()
 const registerController = require("./controllers/registration")
+const PORT = 3000;
 // db.execute("")
 app.use(cors())
 
@@ -19,7 +20,7 @@ app.use('/',jsonParser,routes)
 dbConnection.sync()
 .then(res=>{
     console.log("db Connected")
-    app.listen(3000, () => console.log('Example app listening on port 3000!'))
+    app.listen(PORT, () => console.log('Example app listening on port 3000!'))
 }).catch(err=>{
     console.log(err)
 })
