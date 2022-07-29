@@ -36,24 +36,22 @@ exports.findOne = (req,res)=>{
         }
     }).then(result=>{
         let user = result.id
-        const token = jwt.sign({user},"heyTweniee")
+        const token = ''
         let response = {}
         if(userEmail == result.email){
             if(bcrypt.compareSync(userPassword, result.password)){
                 response  = {
                     data : "Success",
-                    token : token
+                    token :  jwt.sign({user},"heyTweniee")
                 }
             }else{
                 response  = {
                     data : "Wrong Password",
-                    token : token
                 }
             }            
         }else{
             response  = {
-                data : "Email does not exists",
-                token : token
+                data : "Email does not exists"
             }
         }    
         res.status(200).json(response); 
