@@ -4,7 +4,7 @@ const cors = require('cors')
 const routes = require('./routes/routes')
 const bodyParser = require('body-parser')
 const app = express()
-const registerController = require("./controllers/registration")
+const registerController = require("./controllers/controllers")
 const PORT = 3000;
 // db.execute("")
 app.use(cors())
